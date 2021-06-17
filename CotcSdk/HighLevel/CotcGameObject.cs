@@ -6,7 +6,7 @@ namespace CotcSdk
 	/// @ingroup main_classes
 	/// <summary>
 	/// Place this object on all scenes where you would like to use CotC functionality, as described @ref cotcgameobject_ref "in this tutorial".
-	/// 
+	///
 	/// Then call #GetCloud to get a Cloud object, which provides an entry point (through sub objects) to all functionality provided by the SDK.
 	/// </summary>
 	public class CotcGameObject : MonoBehaviour {
@@ -49,7 +49,7 @@ namespace CotcSdk
 		}
 
 		void OnApplicationFocus(bool focused) {
-			Common.Log(focused ? "CotC resumed" : "CotC suspended");
+			//Common.Log(focused ? "CotC resumed" : "CotC suspended");
 			Cotc.OnApplicationFocus(focused);
 		}
 
