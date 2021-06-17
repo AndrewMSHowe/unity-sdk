@@ -7,6 +7,7 @@ namespace CotcSdk
 		#region ISystemFunctions implementation
 		Bundle ISystemFunctions.CollectDeviceInformation ()
 		{
+			/*
 			Bundle result = Bundle.CreateObject();
 			result["id"] = SystemInfo.deviceName;
 			result["model"] = SystemInfo.deviceModel;
@@ -15,10 +16,13 @@ namespace CotcSdk
 			result["osversion"] = SystemInfo.operatingSystem;
 			result["name"] = SystemInfo.deviceName;
 			return result;
+			*/
+			return Bundle.Empty;
 		}
 
 		string ISystemFunctions.GetOsName() {
-			return Application.platform.ToString();
+			//return Application.platform.ToString();
+			return "";
 		}
 		#endregion
 	}
