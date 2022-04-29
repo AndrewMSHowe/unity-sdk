@@ -120,13 +120,13 @@ namespace CotcSdk {
                         }
                     }
                 }
-                
+
                 if(processRequest)
                 {
                     // Extracts asset bundle
                     HttpResponse response = new HttpResponse();
                     response.StatusCode = (int)Request.responseCode;
-                    Common.Log("ProcessRequest - response code: " + Request.responseCode);
+                    // Common.Log("ProcessRequest - response code: " + Request.responseCode);
                     if (Application.platform == RuntimePlatform.IPhonePlayer && response.StatusCode <= 0)
                     {
                         // Nice bug in the iOS UnityWebRequest implementation. When you abort a request, in fact it doesn't
@@ -151,7 +151,7 @@ namespace CotcSdk {
 						}
                         else
                             Common.Log("Empty header response, should not be the case.");
-						
+
                         LogResponse(response);
                         self.FinishWithRequest(this, response);
                     }
