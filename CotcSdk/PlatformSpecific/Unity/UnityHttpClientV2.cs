@@ -156,7 +156,9 @@ namespace CotcSdk {
                         self.FinishWithRequest(this, response);
                     }
                 }
-            }
+
+				Request.Dispose();
+			}
 
 			private byte[] GzipDecompress(byte[] compressedData)
 			{
