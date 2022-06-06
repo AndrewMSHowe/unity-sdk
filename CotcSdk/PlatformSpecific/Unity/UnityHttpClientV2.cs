@@ -141,7 +141,7 @@ namespace CotcSdk {
 						if (responseHeaders != null)
 						{
 							// Detecting if the response is a gzip buffer by checking the first two bytes (gzip header)
-                            if ((Request.downloadHandler.data.Length >= 2) && (Request.downloadHandler.data[0] == 0x1F) && (Request.downloadHandler.data[1] == 0x8B))
+                            if ((Request.downloadHandler.data?.Length >= 2) && (Request.downloadHandler.data[0] == 0x1F) && (Request.downloadHandler.data[1] == 0x8B))
 								response.Body = GzipDecompress(Request.downloadHandler.data);
 							else
 								response.Body = Request.downloadHandler.data;
