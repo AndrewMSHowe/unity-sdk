@@ -96,11 +96,11 @@ namespace CotcSdk {
 				Common.Log(sb.ToString());
 			}
 
-            private IEnumerator ProcessRequest(UnityWebRequest req) {
-				yield return req.SendWebRequest();
+            private IEnumerator ProcessRequest() {
+				yield return Request.SendWebRequest();
 
                 bool processRequest = true;
-				if (req.isNetworkError)
+				if (Request.isNetworkError)
                 {
                     // Nice bug again, in the iOS UnityWebRequest implementation. If server returns a 400 code following a
                     // a successful request process, req.isError is flagged to true... Not sure at this stage how many HTTP
@@ -110,7 +110,7 @@ namespace CotcSdk {
                         processRequest = false;
                         if (!WasAborted)
                         {
-                            string errorMessage = "Failed web request: " + req.error + " - Status code: " + Request.responseCode;
+                            string errorMessage = "Failed web request: " + Request.error + " - Status code: " + Request.responseCode;
                             Common.Log(errorMessage);
                             self.FinishWithRequest(this, new HttpResponse(new Exception(errorMessage)));
                         }
@@ -180,7 +180,7 @@ namespace CotcSdk {
             public override void Start() {
 				// Configure & perform the request
 				LogRequest();
-				Cotc.RunCoroutine(ProcessRequest(Request));
+				Cotc.RunCoroutine(ProcessRequest());
 			}
 		}
 
